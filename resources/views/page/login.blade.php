@@ -8,10 +8,12 @@
     <div class="flex justify-center">
         <div class="w-[40%] p-7 rounded-md shadow-md shadow-gray-400 flex flex-col gap-5 ">
             <h1 class="text-center text-2xl text-violet-500">Login Here</h1>
-            @session('status')
-                {{$message}}
-            @endsession
-            <form action="{{route('loginuser')}}" method="POST" class="flex flex-col gap-5">
+            @if (session('status'))
+            <p class="text-red-700 rounded-md mt-[-15px]">
+                {{session('status')}}
+            </p>
+            @endif
+            <form action="{{route('loginUser')}}" method="POST" class="flex flex-col gap-5">
                 @csrf
                 <input type="email" name="email" value="{{old('email')}}" placeholder="Email"
                     class="p-2 @error('email') border-red-500 @enderror rounded-md shadow-sm shadow-black">

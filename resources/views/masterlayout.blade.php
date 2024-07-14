@@ -56,6 +56,18 @@
 </body>
 
 <script>
+    function togglePasswordVisibility() {
+            const passwordField = document.getElementById('password');
+            const togglePasswordIcon = document.getElementById('togglePassword');
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+        }
+
+        document.getElementById('togglePassword').addEventListener('click', togglePasswordVisibility);
     // Get the modal
     var modal = document.getElementById("myModal");
 
